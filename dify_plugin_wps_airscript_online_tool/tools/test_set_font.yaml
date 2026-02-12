@@ -1,0 +1,127 @@
+
+identity:
+  name: test_set_font
+  author: hn_big_volibear
+  label:
+    en_US: test_set_font
+    zh_Hans: 【格式化类】设置字体
+    pt_BR: test_set_font
+description:
+  human:
+    en_US: test_set_font
+    zh_Hans: 【格式化类】设置指定区域的字体样式
+    pt_BR: test_set_font
+  llm: test_set_font
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 区域地址，字符串形式，比如：A1:D3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: font_name
+    type: string
+    required: false
+    label:
+      en_US: font_name
+      zh_Hans: 字体名称
+      pt_BR: font_name
+    human_description:
+      en_US: font_name
+      zh_Hans: 字体名称，例如：宋体、黑体、楷体、微软雅黑、等线、仿宋、隶书、幼圆、新宋体、Times New Roman、Arial、Calibri（注：这里允许你手动输入，给你更多的灵活选择！）
+      pt_BR: font_name
+    llm_description: font_name
+    form: llm
+  - name: font_size
+    type: number
+    required: false
+    label:
+      en_US: font_size
+      zh_Hans: 字体大小
+      pt_BR: font_size
+    human_description:
+      en_US: font_size
+      zh_Hans: 字体大小，例如：12
+      pt_BR: font_size
+    llm_description: font_size
+    form: llm
+  - name: bold
+    type: select
+    required: false
+    label:
+      en_US: bold
+      zh_Hans: 是否粗体
+      pt_BR: bold
+    human_description:
+      en_US: bold
+      zh_Hans: 是否设置为粗体，不选则不改动此属性。
+      pt_BR: bold
+    llm_description: bold
+    form: form
+    options:
+      - value: '是'
+        label:
+          en_US: 是
+          zh_Hans: 是
+      - value: '否'
+        label:
+          en_US: 否
+          zh_Hans: 否
+  - name: italic
+    type: select
+    required: false
+    label:
+      en_US: italic
+      zh_Hans: 是否斜体
+      pt_BR: italic
+    human_description:
+      en_US: italic
+      zh_Hans: 是否设置为斜体，不选则不改动此属性。
+      pt_BR: italic
+    llm_description: italic
+    form: form
+    options:
+      - value: '是'
+        label:
+          en_US: 是
+          zh_Hans: 是
+      - value: '否'
+        label:
+          en_US: 否
+          zh_Hans: 否
+  - name: color
+    type: string
+    required: false
+    label:
+      en_US: color
+      zh_Hans: 颜色色值
+      pt_BR: color
+    human_description:
+      en_US: color
+      zh_Hans: 字体颜色色值(十六进制标准色值写法)，例如：#FF0000
+      pt_BR: color
+    llm_description: color
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_font.py

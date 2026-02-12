@@ -1,0 +1,57 @@
+
+identity:
+  name: test_set_column_width
+  author: hn_big_volibear
+  label:
+    en_US: test_set_column_width
+    zh_Hans: 【行列操作类】设置列宽
+    pt_BR: test_set_column_width
+description:
+  human:
+    en_US: test_set_column_width
+    zh_Hans: 【行列操作类】设置指定列的宽度
+    pt_BR: test_set_column_width
+  llm: test_set_column_width
+parameters:
+  - name: column_index
+    type: number
+    required: true
+    label:
+      en_US: column_index
+      zh_Hans: 列索引
+      pt_BR: column_index
+    human_description:
+      en_US: column_index
+      zh_Hans: 要设置宽度的列索引，从1开始，A=1，B=2，以此类推
+      pt_BR: column_index
+    llm_description: column_index
+    form: llm
+  - name: width
+    type: number
+    required: true
+    label:
+      en_US: width
+      zh_Hans: 列宽
+      pt_BR: width
+    human_description:
+      en_US: width
+      zh_Hans: 列宽值，单位为字符宽度，默认为16
+      pt_BR: width
+    llm_description: width
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_column_width.py

@@ -1,0 +1,30 @@
+identity:
+  name: test_clear_filter
+  author: hn_big_volibear
+  label:
+    en_US: Clear Filter
+    zh_Hans: 【筛选类】取消筛选
+    pt_BR: Limpar Filtro
+description:
+  human:
+    en_US: Clear all filter conditions in the worksheet
+    zh_Hans: 【筛选类】清除工作表中的所有筛选条件
+    pt_BR: Limpar todas as condições de filtro na planilha
+  llm: A tool for clearing all filter conditions in a worksheet. Use this tool when you need to remove filters and show all data.
+parameters:
+  - name: sheet_name
+    type: string
+    required: true
+    label:
+      en_US: Sheet Name
+      zh_Hans: 工作表名称
+      pt_BR: Nome da Planilha
+    human_description:
+      en_US: The name of the worksheet. If not specified, the active worksheet will be used
+      zh_Hans: 工作表名称。
+      pt_BR: O nome da planilha. Se não especificado, a planilha ativa será usada
+    llm_description: Name of the worksheet to clear filters. Optional parameter
+    form: llm
+extra:
+  python:
+    source: tools/test_clear_filter.py

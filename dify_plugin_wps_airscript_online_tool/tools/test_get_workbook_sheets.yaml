@@ -1,0 +1,18 @@
+
+identity:
+  name: test_get_workbook_sheets
+  author: hn_big_volibear
+  label:
+    en_US: test_get_workbook_sheets
+    zh_Hans: 【工作表类】获取所有工作表名称
+    pt_BR: test_get_workbook_sheets
+description:
+  human:
+    en_US: test_get_workbook_sheets
+    zh_Hans: 【工作表类】获取工作簿中所有工作表的名称列表
+    pt_BR: test_get_workbook_sheets
+  llm: test_get_workbook_sheets
+parameters: []
+extra:
+  python:
+    source: tools/test_get_workbook_sheets.py

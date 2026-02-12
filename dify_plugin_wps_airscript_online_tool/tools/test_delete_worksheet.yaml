@@ -1,0 +1,31 @@
+
+identity:
+  name: test_delete_worksheet
+  author: hn_big_volibear
+  label:
+    en_US: test_delete_worksheet
+    zh_Hans: 【工作表类】删除工作表
+    pt_BR: test_delete_worksheet
+description:
+  human:
+    en_US: test_delete_worksheet
+    zh_Hans: 【工作表类】删除指定的工作表
+    pt_BR: test_delete_worksheet
+  llm: test_delete_worksheet
+parameters:
+  - name: sheet_identifier
+    type: string
+    required: true
+    label:
+      en_US: sheet_identifier
+      zh_Hans: 工作表名称或索引
+      pt_BR: sheet_identifier
+    human_description:
+      en_US: sheet_identifier
+      zh_Hans: 要删除的工作表名称或索引
+      pt_BR: sheet_identifier
+    llm_description: sheet_identifier
+    form: llm
+extra:
+  python:
+    source: tools/test_delete_worksheet.py

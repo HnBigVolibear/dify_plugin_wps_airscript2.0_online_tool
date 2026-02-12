@@ -1,0 +1,56 @@
+identity:
+  name: test_insert_image
+  author: hn_big_volibear
+  label:
+    en_US: Insert Image
+    zh_Hans: 【读写类】单元格插入图片(注：1.0专属命令)
+    pt_BR: Inserir Imagem
+description:
+  human:
+    en_US: Insert an image into a specific cell in the worksheet
+    zh_Hans: 在工作表的指定单元格中插入图片 (注！！！【特殊】这个命令是AirScript1.0版里的专属命令！如果您当前是默认用的2.0版本的，那么请您再去在线表里手动新建一个1.0版本的脚本！然后单独这一个命令调用时要更换script_id！)
+    pt_BR: Inserir uma imagem em uma célula específica na planilha
+  llm: A tool for inserting images into worksheet cells. Use this tool when you need to add images to your spreadsheet.
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: Cell Address
+      zh_Hans: 单元格地址
+      pt_BR: Endereço da Célula
+    human_description:
+      en_US: The cell address where the image will be inserted, e.g., A1, B2
+      zh_Hans: 要插入图片的单元格地址，例如：A1、B2
+      pt_BR: O endereço da célula onde a imagem será inserida, por exemplo, A1, B2
+    llm_description: Cell address (e.g., A1, B2) to insert the image
+    form: llm
+  - name: file
+    type: file
+    required: true
+    label:
+      en_US: Image File
+      zh_Hans: 图片文件
+      pt_BR: Arquivo de Imagem
+    human_description:
+      en_US: The image file to insert (supports common image formats like JPG, PNG, etc.)
+      zh_Hans: 要插入的图片文件（支持常见的图片格式，如JPG、PNG等）
+      pt_BR: O arquivo de imagem a ser inserido (suporta formatos comuns como JPG, PNG, etc.)
+    llm_description: Image file to insert into the worksheet cell
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: Sheet Name
+      zh_Hans: 工作表名称
+      pt_BR: Nome da Planilha
+    human_description:
+      en_US: The name of the worksheet. If not specified, the active worksheet will be used
+      zh_Hans: 工作表名称。如果不指定，将使用当前活动工作表
+      pt_BR: O nome da planilha. Se não especificado, a planilha ativa será usada
+    llm_description: Name of the worksheet to insert the image. Optional parameter
+    form: llm
+extra:
+  python:
+    source: tools/test_insert_image.py

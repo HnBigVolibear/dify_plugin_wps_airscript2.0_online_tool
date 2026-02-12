@@ -1,0 +1,176 @@
+identity:
+  name: test_set_filter
+  author: hn_big_volibear
+  label:
+    en_US: Set Filter
+    zh_Hans: 【筛选类】设置筛选
+    pt_BR: Definir Filtro
+description:
+  human:
+    en_US: Set filter conditions for a specific column in the worksheet
+    zh_Hans: 【筛选类】为工作表中的特定列设置筛选条件。支持多种筛选玩法（请仔细看这里每个参数的描述说明），上限很高，请自行充分耐心探索~
+    pt_BR: Definir condições de filtro para uma coluna específica na planilha
+  llm: A tool for setting filter conditions on worksheet columns. Use this tool when you need to filter data based on specific criteria such as greater than, less than, contains, etc.
+parameters:
+  - name: field
+    type: number
+    required: true
+    label:
+      en_US: Field
+      zh_Hans: 筛选字段(第几列)
+      pt_BR: Campo
+    human_description:
+      en_US: The column index to apply filter, e.g., 1, 2, 3
+      zh_Hans: 要应用筛选的列索引，例如：1、2、3
+      pt_BR: O índice da coluna para aplicar o filtro, por exemplo, 1, 2, 3
+    llm_description: Column index (1-based) to apply the filter condition
+    form: llm
+  - name: operator
+    type: select
+    required: true
+    default: xlFilterValues
+    label:
+      en_US: Operator
+      zh_Hans: 操作符方式
+      pt_BR: Operador
+    human_description:
+      en_US: 'Filter operator type. Options: xlAnd (logical AND), xlOr (logical OR), xlBottom10Items (show bottom N items), xlBottom10Percent (show bottom N percent), xlFilterCellColor (filter by cell color), xlFilterFontColor (filter by font color), xlFilterValues (filter by values like "<30"), xlTop10Items (show top N items), xlTop10Percent (show top N percent)'
+      zh_Hans: '筛选操作符方式类型。选项：xlAnd（逻辑与）、xlOr（逻辑或）、xlBottom10Items（显示最低N项）、xlBottom10Percent（显示最低N百分比）、xlFilterCellColor（按单元格颜色筛选）、xlFilterFontColor（按字体颜色筛选）、xlFilterValues（按值筛选如"<30"）、xlTop10Items（显示最高N项）、xlTop10Percent（显示最高N百分比）'
+      pt_BR: 'Tipo de operador de filtro. Opções: xlAnd (E lógico), xlOr (OU lógico), xlBottom10Items (mostrar N itens inferiores), xlBottom10Percent (mostrar N porcentagem inferior), xlFilterCellColor (filtrar por cor da célula), xlFilterFontColor (filtrar por cor da fonte), xlFilterValues (filtrar por valores como "<30"), xlTop10Items (mostrar N itens superiores), xlTop10Percent (mostrar N porcentagem superior)'
+    llm_description: 'Filter operator type. For xlAnd and xlOr, both criteria1 and criteria2 will be used. For xlFilterValues, only criteria1 is needed. For xlTop10Items/xlTop10Percent/xlBottom10Items/xlBottom10Percent, criteria1 should be a number representing the count or percentage.'
+    form: form
+    options:
+      - value: xlFilterValues
+        label:
+          en_US: xlFilterValues (Value filter)
+          zh_Hans: 值筛选-比如筛选等于20的、小于30的、等于“合格”的
+          pt_BR: xlFilterValues (Filtro de valor)
+      - value: xlAnd
+        label:
+          en_US: xlAnd (AND logic)
+          zh_Hans: 逻辑与-比如既大于100又小于200的、既以“张”开头又包含“总”的
+          pt_BR: xlAnd (E lógico)
+      - value: xlOr
+        label:
+          en_US: xlOr (OR logic)
+          zh_Hans: 逻辑或-比如小于60或大于90的、以“张”开头或以“王”开头的
+          pt_BR: xlOr (OU lógico)
+      - value: xlBottom10Items
+        label:
+          en_US: xlBottom10Items (Bottom N items)
+          zh_Hans: 最低N项-比如筛选最低6项(那么条件1此时就填6)
+          pt_BR: xlBottom10Items (N itens inferiores)
+      - value: xlBottom10Percent
+        label:
+          en_US: xlBottom10Percent (Bottom N percent)
+          zh_Hans: 最低N百分比-比如筛选最低20%的数据(那么条件1此时就填20)
+          pt_BR: xlBottom10Percent (N porcentagem inferior)
+      - value: xlFilterCellColor
+        label:
+          en_US: xlFilterCellColor (Cell color)
+          zh_Hans: 单元格颜色-比如筛选红色背景色的单元格(条件1就填#FF0000)
+          pt_BR: xlFilterCellColor (Cor da célula)
+      - value: xlFilterFontColor
+        label:
+          en_US: xlFilterFontColor (Font color)
+          zh_Hans: 字体颜色-比如筛选蓝色字体的单元格(条件1就填#0000FF)
+          pt_BR: xlFilterFontColor (Cor da fonte)
+      - value: xlTop10Items
+        label:
+          en_US: xlTop10Items (Top N items)
+          zh_Hans: 最高N项-比如筛选最高Top3项(那么条件1此时就填3)
+          pt_BR: xlTop10Items (N itens superiores)
+      - value: xlTop10Percent
+        label:
+          en_US: xlTop10Percent (Top N percent)
+          zh_Hans: 最高N百分比-比如筛选最高20%的数据(那么条件1此时就填20)
+          pt_BR: xlTop10Percent (N porcentagem superior)
+  - name: criteria1
+    type: string
+    required: true
+    default: '=目标值'
+    label:
+      en_US: Criteria 1
+      zh_Hans: 筛选条件1
+      pt_BR: Critério 1
+    human_description:
+      en_US: 'First filter condition. Required. Examples: ">100", "Apple", ">=2023-01-01", "10" (for top/bottom items)'
+      zh_Hans: '第一个筛选条件。必填。示例：">100"、"=Apple"、"张*"、">=2023-01-01"、"10"、"#FF0000"、"<>"。注意支持通配符*和? 比如："<>张*" 就是筛选出所有不姓张的！'
+      pt_BR: 'Primeira condição de filtro. Obrigatório. Exemplos: ">100", "Apple", ">=2023-01-01", "10" (para itens superiores/inferiores)'
+    llm_description: 'The first filter condition to apply. Required parameter. Can be numeric comparison (>, <, =, >=, <=, <>), text matching, or a number for top/bottom items/percent.'
+    form: llm
+  - name: criteria2
+    type: string
+    required: false
+    label:
+      en_US: Criteria 2
+      zh_Hans: 筛选条件2
+      pt_BR: Critério 2
+    human_description:
+      en_US: 'Second filter condition. Optional. Only used when operator is xlAnd or xlOr.'
+      zh_Hans: '第二个筛选条件。可选。仅在操作符为xlAnd或xlOr时使用。示例：">100"、"Apple"、"=张*"、">=2023-01-01"、"10"、"#FF0000"、"<>"。注意支持通配符*和?  比如："=卡??拉" 就是筛选出类似“卡皮巴拉”这样的四字内容！'
+      pt_BR: 'Segunda condição de filtro. Opcional. Usado apenas quando o operador é xlAnd ou xlOr.'
+    llm_description: 'The second filter condition. Only takes effect when operator is xlAnd or xlOr. Optional parameter.'
+    form: llm
+  - name: is_reSet
+    type: select
+    required: true
+    default: '是'
+    label:
+      en_US: is_reSet
+      zh_Hans: 是否重置筛选
+      pt_BR: is_reSet
+    human_description:
+      en_US: '是否在应用新筛选前，先清除现有筛选。如果你要连续设置多列多种筛选条件，那就关闭这个参数！'
+      zh_Hans: '是否在应用新筛选前，先清除现有筛选。如果你要连续设置多列多种筛选条件，那就关闭这个参数！'
+      pt_BR: '是否在应用新筛选前，先清除现有筛选。如果你要连续设置多列多种筛选条件，那就关闭这个参数！'
+    llm_description: '是否在应用新筛选前，先清除现有筛选。如果你要连续设置多列多种筛选条件，那就关闭这个参数！'
+    form: form
+    options:
+      - value: '是'
+        label:
+          en_US: 是
+          zh_Hans: 是
+      - value: '否'
+        label:
+          en_US: 否
+          zh_Hans: 否
+  - name: sheet_name
+    type: string
+    required: true
+    label:
+      en_US: Sheet Name
+      zh_Hans: 工作表名称
+      pt_BR: Nome da Planilha
+    human_description:
+      en_US: The name of the worksheet. If not specified, the active worksheet will be used
+      zh_Hans: 工作表名称。
+      pt_BR: O nome da planilha. Se não especificado, a planilha ativa será usada
+    llm_description: Name of the worksheet to apply the filter. Optional parameter
+    form: llm
+  - name: help_info
+    type: select
+    required: true
+    default: '否'
+    label:
+      en_US: help_info
+      zh_Hans: 是否返回帮助信息【小白看过来！】
+      pt_BR: help_info
+    human_description:
+      en_US: help_info
+      zh_Hans: 弱智的救赎^_^ 一脸懵蔽的你，需要帮助吗？开启帮助模式，让我来告诉你如何使用这个方法！
+      pt_BR: help_info
+    llm_description: help_info
+    form: form
+    options:
+      - label: 
+          en_US: '是'
+          zh_Hans: '是'
+        value: '是'
+      - label: 
+          en_US: '否'
+          zh_Hans: '否'
+        value: '否'
+extra:
+  python:
+    source: tools/test_set_filter.py

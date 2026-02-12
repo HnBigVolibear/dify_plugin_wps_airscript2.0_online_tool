@@ -1,0 +1,57 @@
+
+identity:
+  name: test_set_number_format
+  author: hn_big_volibear
+  label:
+    en_US: test_set_number_format
+    zh_Hans: 【格式化类】设置数字格式
+    pt_BR: test_set_number_format
+description:
+  human:
+    en_US: test_set_number_format
+    zh_Hans: 【格式化类】设置指定区域的数字格式（进阶版）
+    pt_BR: test_set_number_format
+  llm: test_set_number_format
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 区域地址，字符串形式，比如：A1:D3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: format_str
+    type: string
+    required: true
+    label:
+      en_US: format_str
+      zh_Hans: 数字格式_请仔细看下方说明
+      pt_BR: format_str
+    human_description:
+      en_US: format_str
+      zh_Hans: 数字格式字符串，例如：0.00（保留两位小数）、#,##0（千分位）、0%或0.00%（百分比）、yyyy-mm-dd（日期格式）、以及你可以自行设计!
+      pt_BR: format_str
+    llm_description: format_str
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_number_format.py

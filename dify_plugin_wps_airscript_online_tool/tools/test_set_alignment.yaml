@@ -1,0 +1,124 @@
+
+identity:
+  name: test_set_alignment
+  author: hn_big_volibear
+  label:
+    en_US: test_set_alignment
+    zh_Hans: 【格式化类】设置对齐方式
+    pt_BR: test_set_alignment
+description:
+  human:
+    en_US: test_set_alignment
+    zh_Hans: 【格式化类】设置指定区域的对齐方式
+    pt_BR: test_set_alignment
+  llm: test_set_alignment
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 区域地址，字符串形式，比如：A1:D3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: horizontal
+    type: select
+    required: false
+    label:
+      en_US: horizontal
+      zh_Hans: 水平对齐方式
+      pt_BR: horizontal
+    human_description:
+      en_US: horizontal
+      zh_Hans: 水平对齐方式：-4152右对齐，-4131左对齐，-4130两端对齐，-4117分散对齐，-4108居中，1自动，5填充，7跨列居中
+      pt_BR: horizontal
+    llm_description: horizontal
+    form: form
+    options:
+      - value: '-4152'
+        label:
+          en_US: 右对齐
+          zh_Hans: 右对齐
+      - value: '-4131'
+        label:
+          en_US: 左对齐
+          zh_Hans: 左对齐
+      - value: '-4130'
+        label:
+          en_US: 两端对齐
+          zh_Hans: 两端对齐
+      - value: '-4117'
+        label:
+          en_US: 分散对齐
+          zh_Hans: 分散对齐
+      - value: '-4108'
+        label:
+          en_US: 居中
+          zh_Hans: 居中
+      - value: '1'
+        label:
+          en_US: 自动
+          zh_Hans: 自动
+      - value: '5'
+        label:
+          en_US: 填充
+          zh_Hans: 填充
+      - value: '7'
+        label:
+          en_US: 跨列居中
+          zh_Hans: 跨列居中
+  - name: vertical
+    type: select
+    required: false
+    label:
+      en_US: vertical
+      zh_Hans: 垂直对齐方式
+      pt_BR: vertical
+    human_description:
+      en_US: vertical
+      zh_Hans: 垂直对齐方式：-4160顶部对齐，-4130两端对齐，-4117分散对齐，-4108垂直居中，-4107底部对齐
+      pt_BR: vertical
+    llm_description: vertical
+    form: form
+    options:
+      - value: '-4160'
+        label:
+          en_US: 顶部对齐
+          zh_Hans: 顶部对齐
+      - value: '-4130'
+        label:
+          en_US: 两端对齐
+          zh_Hans: 两端对齐
+      - value: '-4117'
+        label:
+          en_US: 分散对齐
+          zh_Hans: 分散对齐
+      - value: '-4108'
+        label:
+          en_US: 垂直居中
+          zh_Hans: 垂直居中
+      - value: '-4107'
+        label:
+          en_US: 底部对齐
+          zh_Hans: 底部对齐
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_alignment.py

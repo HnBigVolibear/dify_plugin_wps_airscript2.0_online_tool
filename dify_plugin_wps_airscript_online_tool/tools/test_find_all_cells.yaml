@@ -1,0 +1,57 @@
+
+identity:
+  name: test_find_all_cells
+  author: hn_big_volibear
+  label:
+    en_US: test_find_all_cells
+    zh_Hans: 【查找替换类】查找所有匹配单元格
+    pt_BR: test_find_all_cells
+description:
+  human:
+    en_US: test_find_all_cells
+    zh_Hans: 【查找替换类】在工作表中查找所有包含指定文本的单元格
+    pt_BR: test_find_all_cells
+  llm: test_find_all_cells
+parameters:
+  - name: search_text
+    type: string
+    required: true
+    label:
+      en_US: search_text
+      zh_Hans: 查找文本
+      pt_BR: search_text
+    human_description:
+      en_US: search_text
+      zh_Hans: 要查找的文本内容（警告！！！测试发现，如果你找的是纯数字，好像会有Bug哦。。。）
+      pt_BR: search_text
+    llm_description: search_text
+    form: llm
+  - name: search_range
+    type: string
+    required: true
+    label:
+      en_US: search_range
+      zh_Hans: 搜索范围
+      pt_BR: search_range
+    human_description:
+      en_US: search_range
+      zh_Hans: 搜索范围，例如：A1:Z100
+      pt_BR: search_range
+    llm_description: search_range
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_find_all_cells.py

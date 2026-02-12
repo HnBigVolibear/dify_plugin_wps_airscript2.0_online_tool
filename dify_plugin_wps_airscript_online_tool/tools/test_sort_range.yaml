@@ -1,0 +1,94 @@
+
+identity:
+  name: test_sort_range
+  author: hn_big_volibear
+  label:
+    en_US: test_sort_range
+    zh_Hans: 【排序类】区域排序
+    pt_BR: test_sort_range
+description:
+  human:
+    en_US: test_sort_range
+    zh_Hans: 【排序类】对当前表格的已使用区域进行自定义排序。您可以自行设置复杂的排序规则。比如，要对A列部门列进行降序、并且对B列年龄列进行升序（即组合排序），则可设置为：[ ["A", "desc"], ["B", "asc"] ]
+    pt_BR: test_sort_range
+  llm: test_sort_range
+parameters:
+  - name: sortList
+    type: string
+    required: true
+    label:
+      en_US: sortList
+      zh_Hans: 排序区域列
+      pt_BR: sortList
+    human_description:
+      en_US: sortList
+      zh_Hans: 排序区域列，列表形式的字符串，例如：[ ["C", "desc"], ["A", "asc"] ] 其中C表示第3列，desc表示降序，asc表示升序。你可以自行设计决定哪些列参与到排序规则里来！  
+      pt_BR: sortList
+    llm_description: sortList
+    form: llm
+  - name: modeHeader
+    type: select
+    required: true
+    default: 'xlYes'
+    label:
+      en_US: modeHeader
+      zh_Hans: 是否考虑标题行
+      pt_BR: modeHeader
+    human_description:
+      en_US: modeHeader
+      zh_Hans: 是否考虑标题行
+      pt_BR: modeHeader
+    llm_description: modeHeader
+    form: form
+    options:
+      - value: 'xlGuess'
+        label:
+          en_US: 自动
+          zh_Hans: 自动
+      - value: 'xlYes'
+        label:
+          en_US: 是
+          zh_Hans: 是
+      - value: 'xlNo'
+        label:
+          en_US: 否
+          zh_Hans: 否
+  - name: modeMatchCase
+    type: select
+    required: true
+    default: '是'
+    label:
+      en_US: modeMatchCase
+      zh_Hans: 是否区分大小写
+      pt_BR: modeMatchCase
+    human_description:
+      en_US: modeMatchCase
+      zh_Hans: 是否区分大小写
+      pt_BR: modeMatchCase
+    llm_description: modeMatchCase
+    form: form
+    options:
+      - value: '是'
+        label:
+          en_US: 是
+          zh_Hans: 是
+      - value: '否'
+        label:
+          en_US: 否
+          zh_Hans: 否
+  - name: sheet_name
+    type: string
+    required: true
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_sort_range.py

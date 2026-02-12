@@ -1,0 +1,44 @@
+
+identity:
+  name: test_auto_fit_columns
+  author: hn_big_volibear
+  label:
+    en_US: test_auto_fit_columns
+    zh_Hans: 【格式化类】自动调整列宽
+    pt_BR: test_auto_fit_columns
+description:
+  human:
+    en_US: test_auto_fit_columns
+    zh_Hans: 【格式化类】自动调整指定列的宽度以适应内容
+    pt_BR: test_auto_fit_columns
+  llm: test_auto_fit_columns
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 列地址或区域
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 列地址或区域，例如：A:A 表示A列，A:D表示A到D列。直接自动设置整列的宽度！
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_auto_fit_columns.py

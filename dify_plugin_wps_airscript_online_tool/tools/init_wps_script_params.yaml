@@ -1,0 +1,92 @@
+identity:
+  name: init_wps_script_params
+  author: hn_big_volibear
+  label:
+    en_US: init_wps_script_params
+    zh_Hans: 初始化WPS_AirScript接口
+    pt_BR: init_wps_script_params
+description:
+  human:
+    en_US: init_wps_script_params
+    zh_Hans: 初始化WPS_AirScript接口，请填入相关秘钥，用于鉴权和绑定在线表。不会用？那请开启帮助模式，获取详细教程和所需的JS脚本文件！注：本插件底层都是基于WPS AirScript的2.0版本！切记不要搞混到1.0版本啦！！！
+    pt_BR: init_wps_script_params
+  llm: init_wps_script_params
+parameters:
+  - name: file_id
+    type: string
+    required: true
+    label:
+      en_US: file_id
+      zh_Hans: 在线表文件ID
+      pt_BR: file_id
+    human_description:
+      en_US: file_id
+      zh_Hans: 在线表文件ID。比如https://www.kdocs.cn/l/cbKd****Jq2K的文件ID就是cbKd****Jq2K
+      pt_BR: file_id
+    llm_description: file_id
+    form: llm
+  - name: script_id
+    type: string
+    required: true
+    label:
+      en_US: script_id
+      zh_Hans: 脚本ID
+      pt_BR: script_id
+    human_description:
+      en_US: script_id
+      zh_Hans: 脚本ID。从WPS在线版网页里点开webhook地址里获取。
+      pt_BR: script_id
+    llm_description: script_id
+    form: llm
+  - name: token
+    type: secret-input
+    required: true
+    label:
+      en_US: token
+      zh_Hans: 脚本接口密钥
+      pt_BR: token
+    human_description:
+      en_US: token
+      zh_Hans: 脚本接口密钥token。从WPS在线版网页里去创建自己的脚步的接口调用的密钥！
+      pt_BR: token
+    llm_description: token
+    form: llm
+  - name: help_info
+    type: select
+    required: true
+    default: '否'
+    label:
+      en_US: help_info
+      zh_Hans: 是否返回帮助信息【小白看过来！】
+      pt_BR: help_info
+    human_description:
+      en_US: help_info
+      zh_Hans: 弱智的救赎^_^ 一脸懵蔽的你，需要帮助吗？开启帮助模式，让我来告诉你如何使用这个工具（获取详细教程和所需的JS脚本文件）
+      pt_BR: help_info
+    llm_description: help_info
+    form: form
+    options:
+      - label: 
+          en_US: '是'
+          zh_Hans: '是'
+        value: '是'
+      - label: 
+          en_US: '否'
+          zh_Hans: '否'
+        value: '否'
+  - name: query_password
+    type: secret-input
+    required: false
+    label:
+      en_US: query_password
+      zh_Hans: 本工具使用授权码
+      pt_BR: query_password
+    human_description:
+      en_US: query_password
+      zh_Hans: 【可选】本工具使用授权码，加密传输查询数据，如需使用：请邮件联系作者购买申请授权码！（比如用于限定使用范围、流控等）
+      pt_BR: query_password
+    llm_description: query_password
+    form: form
+extra:
+  python:
+    source: tools/init_wps_script_params.py

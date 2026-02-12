@@ -1,0 +1,178 @@
+identity:
+  name: test_create_pivot
+  author: hn_big_volibear
+  label:
+    en_US: test_create_pivot
+    zh_Hans: 【透视表类】创建透视表
+    pt_BR: test_create_pivot
+description:
+  human:
+    en_US: test_create_pivot
+    zh_Hans: 【透视表类】创建透视表，支持设置统计方式（求和、计数、平均值等）
+    pt_BR: test_create_pivot
+  llm: test_create_pivot
+parameters:
+  - name: source_sheet_name
+    type: string
+    required: true
+    label:
+      en_US: source_sheet_name
+      zh_Hans: 源数据表名称
+      pt_BR: source_sheet_name
+    human_description:
+      en_US: source_sheet_name
+      zh_Hans: 源数据表名称，包含要分析的数据的工作表
+      pt_BR: source_sheet_name
+    llm_description: source_sheet_name
+    form: llm
+  - name: source_range
+    type: string
+    required: true
+    label:
+      en_US: source_range
+      zh_Hans: 源数据区域
+      pt_BR: source_range
+    human_description:
+      en_US: source_range
+      zh_Hans: 源数据区域，如 A1:D100
+      pt_BR: source_range
+    llm_description: source_range
+    form: llm
+  - name: row_column_indices
+    type: string
+    required: false
+    label:
+      en_US: row_column_indices
+      zh_Hans: 行字段列索引列表
+      pt_BR: row_column_indices
+    human_description:
+      en_US: row_column_indices
+      zh_Hans: 作为行字段的列索引列表，即在透视表中作为行字段的列索引。（从1开始），可为空。请使用JSON数组格式，如：[1,2]
+      pt_BR: row_column_indices
+    llm_description: row_column_indices，JSON数组格式，如[1,2]
+    form: llm
+  - name: column_column_indices
+    type: string
+    required: false
+    label:
+      en_US: column_column_indices
+      zh_Hans: 列字段列索引列表
+      pt_BR: column_column_indices
+    human_description:
+      en_US: column_column_indices
+      zh_Hans: 作为列字段的列索引列表，即在透视表中作为列字段的列索引。（从1开始），可为空。请使用JSON数组格式，如：[2,3]
+      pt_BR: column_column_indices
+    llm_description: column_column_indices，JSON数组格式，如[2,3]
+    form: llm
+  - name: value_column_indices
+    type: string
+    required: true
+    label:
+      en_US: value_column_indices
+      zh_Hans: 值字段列索引列表
+      pt_BR: value_column_indices
+    human_description:
+      en_US: value_column_indices
+      zh_Hans: 作为值字段的列索引列表，即在透视表中作为值字段的列索引。（从1开始）。不能为空。请使用JSON数组格式，如：[3]
+      pt_BR: value_column_indices
+    llm_description: value_column_indices，JSON数组格式，如[3]
+    form: llm
+  - name: function_type
+    type: select
+    required: false
+    label:
+      en_US: function_type
+      zh_Hans: 统计函数类型
+      pt_BR: function_type
+    human_description:
+      en_US: function_type
+      zh_Hans: 统计函数类型，可选值：sum(求和)、count(计数)、average(平均值)、max(最大值)、min(最小值)、product(乘积)、countNums(计数仅数字)、stdDev(标准偏差)、stdDevP(总体标准偏差)、var(方差)、varP(总体方差)
+      pt_BR: function_type
+    llm_description: function_type
+    form: form
+    options:
+      - value: sum
+        label:
+          en_US: sum
+          zh_Hans: 求和
+          pt_BR: sum
+      - value: count
+        label:
+          en_US: count
+          zh_Hans: 计数
+          pt_BR: count
+      - value: average
+        label:
+          en_US: average
+          zh_Hans: 平均值
+          pt_BR: average
+      - value: max
+        label:
+          en_US: max
+          zh_Hans: 最大值
+          pt_BR: max
+      - value: min
+        label:
+          en_US: min
+          zh_Hans: 最小值
+          pt_BR: min
+      - value: product
+        label:
+          en_US: product
+          zh_Hans: 乘积
+          pt_BR: product
+      - value: countNums
+        label:
+          en_US: countNums
+          zh_Hans: 计数（仅数字）
+          pt_BR: countNums
+      - value: stdDev
+        label:
+          en_US: stdDev
+          zh_Hans: 标准偏差
+          pt_BR: stdDev
+      - value: stdDevP
+        label:
+          en_US: stdDevP
+          zh_Hans: 总体标准偏差
+          pt_BR: stdDevP
+      - value: var
+        label:
+          en_US: var
+          zh_Hans: 方差
+          pt_BR: var
+      - value: varP
+        label:
+          en_US: varP
+          zh_Hans: 总体方差
+          pt_BR: varP
+    default: sum
+  - name: target_sheet_name
+    type: string
+    required: true
+    label:
+      en_US: target_sheet_name
+      zh_Hans: 透视表放置的工作表名称
+      pt_BR: target_sheet_name
+    human_description:
+      en_US: target_sheet_name
+      zh_Hans: 透视表放置的工作表名称
+      pt_BR: target_sheet_name
+    llm_description: target_sheet_name
+    form: llm
+  - name: target_cell
+    type: string
+    required: true
+    label:
+      en_US: target_cell
+      zh_Hans: 透视表放置的起始单元格
+      pt_BR: target_cell
+    human_description:
+      en_US: target_cell
+      zh_Hans: 透视表放置的起始单元格，如 A1
+      pt_BR: target_cell
+    llm_description: target_cell
+    form: llm
+extra:
+  python:
+    source: tools/test_create_pivot.py

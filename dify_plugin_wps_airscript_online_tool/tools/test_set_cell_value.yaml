@@ -1,0 +1,56 @@
+identity:
+  name: test_set_cell_value
+  author: hn_big_volibear
+  label:
+    en_US: test_set_cell_value
+    zh_Hans: 【读写类】写入单元格值
+    pt_BR: test_set_cell_value
+description:
+  human:
+    en_US: test_set_cell_value
+    zh_Hans: 【读写类】写入单元格值
+    pt_BR: test_set_cell_value
+  llm: test_set_cell_value
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 单元格地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 单元格地址，字符串形式，比如：A1、C3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: set_value
+    type: string
+    required: false
+    label:
+      en_US: set_value
+      zh_Hans: 设置单元格值
+      pt_BR: set_value
+    human_description:
+      en_US: set_value
+      zh_Hans: 设置单元格值。为空时即为清空该单元格
+      pt_BR: set_value
+    llm_description: set_value
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页（新表肯定就是第一个Sheet页）
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_cell_value.py

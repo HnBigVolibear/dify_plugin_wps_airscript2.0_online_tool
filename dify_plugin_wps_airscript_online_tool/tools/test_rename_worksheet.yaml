@@ -1,0 +1,43 @@
+identity:
+  name: test_rename_worksheet
+  author: hn_big_volibear
+  label:
+    en_US: test_rename_worksheet
+    zh_Hans: 【工作表类】重命名工作表
+    pt_BR: test_rename_worksheet
+description:
+  human:
+    en_US: test_rename_worksheet
+    zh_Hans: 【工作表类】重命名指定的工作表 【特别说明！】本命令可能存在Bug，有时候一张表已删除后，实际上还存在于当前在线表内存里，从而导致误判存在。如果你重命名相同名字，此时就可能冲突！
+    pt_BR: test_rename_worksheet
+  llm: test_rename_worksheet
+parameters:
+  - name: old_sheet_name
+    type: string
+    required: true
+    label:
+      en_US: old_sheet_name
+      zh_Hans: 原工作表名称
+      pt_BR: old_sheet_name
+    human_description:
+      en_US: old_sheet_name
+      zh_Hans: 要重命名的工作表的当前名称
+      pt_BR: old_sheet_name
+    llm_description: old_sheet_name
+    form: llm
+  - name: new_sheet_name
+    type: string
+    required: true
+    label:
+      en_US: new_sheet_name
+      zh_Hans: 新工作表名称
+      pt_BR: new_sheet_name
+    human_description:
+      en_US: new_sheet_name
+      zh_Hans: 工作表的新名称。【特别说明！】本命令可能存在Bug，有时候一张表已删除后，实际上还存在于当前在线表内存里，从而导致误判存在。如果你重命名相同名字，此时就可能冲突！
+      pt_BR: new_sheet_name
+    llm_description: new_sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_rename_worksheet.py

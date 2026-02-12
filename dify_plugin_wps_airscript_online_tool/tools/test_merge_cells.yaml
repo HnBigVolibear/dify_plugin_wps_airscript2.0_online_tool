@@ -1,0 +1,44 @@
+
+identity:
+  name: test_merge_cells
+  author: hn_big_volibear
+  label:
+    en_US: test_merge_cells
+    zh_Hans: 【格式化类】合并单元格
+    pt_BR: test_merge_cells
+description:
+  human:
+    en_US: test_merge_cells
+    zh_Hans: 【格式化类】合并指定区域的单元格。注意，合并单元格后，内容和格式都只会保留左上角的单元格的内容和格式，其他子单元格会被清空！
+    pt_BR: test_merge_cells
+  llm: test_merge_cells
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 区域地址，字符串形式，比如：A1:D3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_merge_cells.py

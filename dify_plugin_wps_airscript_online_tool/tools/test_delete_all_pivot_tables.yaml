@@ -1,0 +1,30 @@
+identity:
+  name: test_delete_all_pivot_tables
+  author: hn_big_volibear
+  label:
+    en_US: test_delete_all_pivot_tables
+    zh_Hans: 【透视表类】删除所有透视表
+    pt_BR: test_delete_all_pivot_tables
+description:
+  human:
+    en_US: test_delete_all_pivot_tables
+    zh_Hans: 【透视表类】删除指定工作表中的所有透视表
+    pt_BR: test_delete_all_pivot_tables
+  llm: test_delete_all_pivot_tables
+parameters:
+  - name: sheet_name
+    type: string
+    required: true
+    label:
+      en_US: sheet_name
+      zh_Hans: 工作表名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 要删除透视表的工作表名称
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_delete_all_pivot_tables.py

@@ -1,0 +1,44 @@
+
+identity:
+  name: test_unmerge_cells
+  author: hn_big_volibear
+  label:
+    en_US: test_unmerge_cells
+    zh_Hans: 【格式化类】取消合并单元格
+    pt_BR: test_unmerge_cells
+description:
+  human:
+    en_US: test_unmerge_cells
+    zh_Hans: 【格式化类】取消指定区域的单元格合并
+    pt_BR: test_unmerge_cells
+  llm: test_unmerge_cells
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 区域地址，字符串形式，比如：A1:D3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_unmerge_cells.py

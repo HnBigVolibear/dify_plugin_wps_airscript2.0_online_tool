@@ -1,0 +1,57 @@
+
+identity:
+  name: test_batch_write
+  author: hn_big_volibear
+  label:
+    en_US: test_batch_write
+    zh_Hans: 【读写类】从起点单元格处批量写入数据
+    pt_BR: test_batch_write
+description:
+  human:
+    en_US: test_batch_write
+    zh_Hans: 【读写类】（最实用的！）批量写入数据到工作表，从你指定的起始单元格开始写入区域二维表格数据！
+    pt_BR: test_batch_write
+  llm: test_batch_write
+parameters:
+  - name: data
+    type: string
+    required: true
+    label:
+      en_US: data
+      zh_Hans: 数据
+      pt_BR: data
+    human_description:
+      en_US: data
+      zh_Hans: 要写入的数据，二维数组格式，例如：[ ["姓名", "年龄"], ["张三", 25], ["李四", "36"], ["王五", "18"] ]
+      pt_BR: data
+    llm_description: data
+    form: llm
+  - name: start_cell
+    type: string
+    required: false
+    label:
+      en_US: start_cell
+      zh_Hans: 起始单元格
+      pt_BR: start_cell
+    human_description:
+      en_US: start_cell
+      zh_Hans: 起始单元格地址，例如：A1，默认为A1
+      pt_BR: start_cell
+    llm_description: start_cell
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_batch_write.py

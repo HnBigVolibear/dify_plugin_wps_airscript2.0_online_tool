@@ -1,0 +1,31 @@
+
+identity:
+  name: test_worksheet_exists
+  author: hn_big_volibear
+  label:
+    en_US: test_worksheet_exists
+    zh_Hans: 【工作表类】检查工作表是否存在
+    pt_BR: test_worksheet_exists
+description:
+  human:
+    en_US: test_worksheet_exists
+    zh_Hans: 【工作表类】检查指定名称的工作表是否存在。【特别说明！】本命令可能存在Bug，有时候一张表已删除后，实际上还存在于当前在线表内存里，从而导致误判存在。
+    pt_BR: test_worksheet_exists
+  llm: test_worksheet_exists
+parameters:
+  - name: sheet_name
+    type: string
+    required: true
+    label:
+      en_US: sheet_name
+      zh_Hans: 工作表名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 要检查的工作表名称。 【特别说明！】本命令可能存在Bug，有时候一张表已删除后，实际上还存在于当前在线表内存里，从而导致误判存在。如果你重命名相同名字，此时就可能冲突！
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_worksheet_exists.py

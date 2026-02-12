@@ -1,0 +1,41 @@
+identity:
+  name: convert_row_col_to_a1
+  author: hn_big_volibear
+  label:
+    en_US: convert_row_col_to_a1
+    zh_Hans: 行列序号转单元格名称
+description:
+  human:
+    en_US: Convert row and column numbers to Excel A1 notation
+    zh_Hans: 将行号和列号转换为 Excel 单元格名称，例如 row=1,col=1 -> A1
+  llm: convert_row_col_to_a1
+parameters:
+  - name: row
+    type: number
+    required: true
+    min: 1
+    max: 1048576
+    label:
+      en_US: row
+      zh_Hans: 行号
+    human_description:
+      en_US: 1-based row number
+      zh_Hans: 从 1 开始的行号，必填
+    llm_description: row
+    form: llm
+  - name: column
+    type: number
+    required: true
+    min: 1
+    max: 16384
+    label:
+      en_US: column
+      zh_Hans: 列号
+    human_description:
+      en_US: 1-based column number
+      zh_Hans: 从 1 开始的列号，必填（例如 1->A, 29->AC）
+    llm_description: column
+    form: llm
+extra:
+  python:
+    source: tools/convert_row_col_to_a1.py

@@ -1,0 +1,30 @@
+identity:
+  name: test_add_worksheet
+  author: hn_big_volibear
+  label:
+    en_US: test_add_worksheet
+    zh_Hans: 【工作表类】添加工作表
+    pt_BR: test_add_worksheet
+description:
+  human:
+    en_US: test_add_worksheet
+    zh_Hans: 【工作表类】在工作簿中添加新的工作表
+    pt_BR: test_add_worksheet
+  llm: test_add_worksheet
+parameters:
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 工作表名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 新工作表的名称，可选，不填则自动命名
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_add_worksheet.py

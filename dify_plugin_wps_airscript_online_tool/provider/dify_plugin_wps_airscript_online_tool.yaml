@@ -1,0 +1,77 @@
+identity:
+  author: hn_big_volibear
+  name: dify_plugin_wps_airscript_online_tool
+  label:
+    en_US: dify_plugin_wps_airscript_online_tool
+    zh_Hans: WPS智能表格在线编辑工具Beta
+    pt_BR: dify_plugin_wps_airscript_online_tool
+  description:
+    en_US: a tool for wps query and edit online
+    zh_Hans: WPS智能表格在线编辑工具Beta，支持查询和编辑表格数据，支持40+种操作。基于WPS官方的AirScript API 2.0版实现，史诗巨献！理论上支持所有WPS智能表格的操作！注：当前版本存在大量AI自动编写的代码，少数地方都还没测试完毕，因此可能存在一些Bug，请客官自行探索哈哈哈~
+    pt_BR: a tool for wps query and edit online
+  icon: wps.png
+tools:
+  - tools/init_wps_script_params.yaml
+  - tools/convert_row_col_to_a1.yaml
+
+  - tools/test_get_cell_value.yaml
+  - tools/test_set_cell_value.yaml
+  - tools/test_get_range_values.yaml
+  - tools/test_set_range_values.yaml
+  - tools/test_batch_write.yaml
+
+  - tools/test_insert_image.yaml
+  - tools/test_insert_link.yaml
+
+  - tools/test_clear_range.yaml
+  
+  - tools/test_get_cell_formula.yaml
+  - tools/test_set_cell_formula.yaml
+  - tools/test_get_used_range_data.yaml
+  
+  - tools/test_set_font.yaml
+  - tools/test_set_background_color.yaml
+  - tools/test_set_alignment.yaml
+  - tools/test_set_border.yaml
+  
+  - tools/test_merge_cells.yaml
+  - tools/test_unmerge_cells.yaml
+  
+  - tools/test_auto_fit_columns.yaml
+  - tools/test_set_number_format.yaml
+  
+  - tools/test_insert_rows.yaml
+  - tools/test_delete_rows.yaml
+  - tools/test_insert_columns.yaml
+  - tools/test_delete_columns.yaml
+  
+  - tools/test_set_row_height.yaml
+  - tools/test_set_column_width.yaml
+  
+  # - tools/test_find_cell.yaml  # 这个方法，与下面的test_find_all_cells重复了，所以暂时注释掉！
+  - tools/test_find_all_cells.yaml
+  - tools/test_replace_in_range.yaml
+  - tools/test_copy_paste_range.yaml
+  # - tools/test_copy_range.yaml  # 后台远程调API场景，这个方法已经没用了。
+  # - tools/test_paste_to_range.yaml # 后台远程调API场景，这个方法已经没用了。
+  
+  - tools/test_sort_range.yaml # 最复杂的一个方法，可能存在bug。。。
+
+  - tools/test_set_filter.yaml
+  - tools/test_clear_filter.yaml
+  - tools/test_get_filtered_data.yaml
+  
+  - tools/test_get_worksheet_count.yaml
+  - tools/test_get_workbook_sheets.yaml
+  - tools/test_add_worksheet.yaml
+  - tools/test_worksheet_exists.yaml
+  - tools/test_rename_worksheet.yaml
+  - tools/test_delete_worksheet.yaml
+
+  # 透视表操作
+  - tools/test_create_pivot.yaml
+  - tools/test_update_all_pivot_tables.yaml
+  - tools/test_delete_all_pivot_tables.yaml
+extra:
+  python:
+    source: provider/dify_plugin_wps_airscript_online_tool.py

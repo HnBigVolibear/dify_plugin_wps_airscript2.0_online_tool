@@ -1,0 +1,57 @@
+
+identity:
+  name: test_set_cell_formula
+  author: hn_big_volibear
+  label:
+    en_US: test_set_cell_formula
+    zh_Hans: 【公式类】设置单元格或区域公式
+    pt_BR: test_set_cell_formula
+description:
+  human:
+    en_US: test_set_cell_formula
+    zh_Hans: 【公式类】为指定单元格或区域设置公式
+    pt_BR: test_set_cell_formula
+  llm: test_set_cell_formula
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 单元格区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 单元格区域地址，字符串形式，比如：A1；同时其实也兼容一列的区域地址，比如：G1:G30，此时会自动将第一个单元格本次设置的公式直接应用至这段整列的单元格！ 
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: formula
+    type: string
+    required: true
+    label:
+      en_US: formula
+      zh_Hans: 公式
+      pt_BR: formula
+    human_description:
+      en_US: formula
+      zh_Hans: 要设置的公式，例如：=SUM(A1:A10)
+      pt_BR: formula
+    llm_description: formula
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_cell_formula.py

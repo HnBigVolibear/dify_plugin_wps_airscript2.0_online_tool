@@ -1,0 +1,31 @@
+
+identity:
+  name: test_get_filtered_data
+  author: hn_big_volibear
+  label:
+    en_US: Get Filtered Data
+    zh_Hans: 【筛选类】获取筛选后数据
+    pt_BR: Obter Dados Filtrados
+description:
+  human:
+    en_US: Get the data that remains after applying filters in the worksheet
+    zh_Hans: 获取工作表中应用筛选后保留还显示的数据！注：该命令仅限WPS AirScript2.0版本里有效！
+    pt_BR: Obter os dados que permanecem após aplicar filtros na planilha
+  llm: A tool for retrieving data from a worksheet after filters have been applied. Use this tool when you need to get only the visible rows after filtering.
+parameters:
+  - name: sheet_name
+    type: string
+    required: true
+    label:
+      en_US: Sheet Name
+      zh_Hans: 工作表名称
+      pt_BR: Nome da Planilha
+    human_description:
+      en_US: The name of the worksheet. If not specified, the active worksheet will be used
+      zh_Hans: 工作表名称。   注：该命令仅限WPS AirScript2.0版本里有效！
+      pt_BR: O nome da planilha. Se não especificado, a planilha ativa será usada
+    llm_description: Name of the worksheet to get filtered data from. Optional parameter
+    form: llm
+extra:
+  python:
+    source: tools/test_get_filtered_data.py

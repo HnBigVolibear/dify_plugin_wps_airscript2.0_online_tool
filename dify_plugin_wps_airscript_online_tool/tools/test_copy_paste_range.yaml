@@ -1,0 +1,57 @@
+
+identity:
+  name: test_copy_paste_range
+  author: hn_big_volibear
+  label:
+    en_US: test_copy_paste_range
+    zh_Hans: 【复制粘贴类】复制粘贴区域
+    pt_BR: test_copy_paste_range
+description:
+  human:
+    en_US: test_copy_paste_range
+    zh_Hans: 【复制粘贴类】将一个区域的内容复制并粘贴到另一个位置
+    pt_BR: test_copy_paste_range
+  llm: test_copy_paste_range
+parameters:
+  - name: source_address
+    type: string
+    required: true
+    label:
+      en_US: source_address
+      zh_Hans: 源区域地址
+      pt_BR: source_address
+    human_description:
+      en_US: source_address
+      zh_Hans: 源区域地址，例如：A1:C3
+      pt_BR: source_address
+    llm_description: source_address
+    form: llm
+  - name: target_address
+    type: string
+    required: true
+    label:
+      en_US: target_address
+      zh_Hans: 目标单元格起点
+      pt_BR: target_address
+    human_description:
+      en_US: target_address
+      zh_Hans: 目标区域起始地址，例如：E1
+      pt_BR: target_address
+    llm_description: target_address
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_copy_paste_range.py

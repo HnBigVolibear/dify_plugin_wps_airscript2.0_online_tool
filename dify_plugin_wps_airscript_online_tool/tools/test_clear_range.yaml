@@ -1,0 +1,67 @@
+
+identity:
+  name: test_clear_range
+  author: hn_big_volibear
+  label:
+    en_US: test_clear_range
+    zh_Hans: 【读写类】清除区域内容和格式
+    pt_BR: test_clear_range
+description:
+  human:
+    en_US: test_clear_range
+    zh_Hans: 【读写类】清除指定区域的内容和格式。不仅清除区域里的内容，而且也清理格式！你可以自行关闭清除格式开关
+    pt_BR: test_clear_range
+  llm: test_clear_range
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 区域地址，字符串形式，比如：A1:D3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+  - name: keep_format
+    type: select
+    required: true
+    default: '否'
+    label:
+      en_US: keep_format
+      zh_Hans: 是否保留格式
+      pt_BR: keep_format
+    human_description:
+      en_US: keep_format
+      zh_Hans: 默认为true。如果为 true，会只清除内容并保留格式；如果为 false，会连格式一起清除
+      pt_BR: keep_format
+    llm_description: 是否保留格式
+    form: form
+    options:
+      - value: '是'
+        label:
+          en_US: 是
+          zh_Hans: 是
+      - value: '否'
+        label:
+          en_US: 否
+          zh_Hans: 否
+extra:
+  python:
+    source: tools/test_clear_range.py

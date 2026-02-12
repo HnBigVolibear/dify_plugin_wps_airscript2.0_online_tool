@@ -1,0 +1,70 @@
+
+identity:
+  name: test_replace_in_range
+  author: hn_big_volibear
+  label:
+    en_US: test_replace_in_range
+    zh_Hans: 【查找替换类】替换内容
+    pt_BR: test_replace_in_range
+description:
+  human:
+    en_US: test_replace_in_range
+    zh_Hans: 【查找替换类】在工作表中查找并替换指定内容
+    pt_BR: test_replace_in_range
+  llm: test_replace_in_range
+parameters:
+  - name: search_text
+    type: string
+    required: true
+    label:
+      en_US: search_text
+      zh_Hans: 查找文本
+      pt_BR: search_text
+    human_description:
+      en_US: search_text
+      zh_Hans: 要查找的文本内容
+      pt_BR: search_text
+    llm_description: search_text
+    form: llm
+  - name: replace_text
+    type: string
+    required: true
+    label:
+      en_US: replace_text
+      zh_Hans: 替换文本
+      pt_BR: replace_text
+    human_description:
+      en_US: replace_text
+      zh_Hans: 要替换成的文本内容
+      pt_BR: replace_text
+    llm_description: replace_text
+    form: llm
+  - name: search_range
+    type: string
+    required: true
+    label:
+      en_US: search_range
+      zh_Hans: 搜索范围
+      pt_BR: search_range
+    human_description:
+      en_US: search_range
+      zh_Hans: 搜索范围，例如：A1:Z100
+      pt_BR: search_range
+    llm_description: search_range
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_replace_in_range.py

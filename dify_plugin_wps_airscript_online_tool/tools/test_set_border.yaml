@@ -1,0 +1,131 @@
+
+identity:
+  name: test_set_border
+  author: hn_big_volibear
+  label:
+    en_US: test_set_border
+    zh_Hans: 【格式化类】设置边框
+    pt_BR: test_set_border
+description:
+  human:
+    en_US: test_set_border
+    zh_Hans: 【格式化类】设置指定区域的边框样式
+    pt_BR: test_set_border
+  llm: test_set_border
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 区域地址，字符串形式，比如：A1:D3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: line_style
+    type: select
+    required: true
+    default: '1'
+    label:
+      en_US: line_style
+      zh_Hans: 边框样式
+      pt_BR: line_style
+    human_description:
+      en_US: line_style
+      zh_Hans: 边框样式
+      pt_BR: line_style
+    llm_description: line_style
+    form: form
+    options:
+      - value: '1'
+        label:
+          en_US: 实线
+          zh_Hans: 实线
+      - value: '-4115'
+        label:
+          en_US: 虚划线
+          zh_Hans: 虚划线
+      - value: '-4142'
+        label:
+          en_US: 虚点线
+          zh_Hans: 虚点线
+      - value: '4'
+        label:
+          en_US: 虚点划线
+          zh_Hans: 虚点划线
+      - value: '5'
+        label:
+          en_US: 虚点划点线
+          zh_Hans: 虚点划点线
+      - value: '-4119'
+        label:
+          en_US: 双实线
+          zh_Hans: 双实线
+      - value: '13'
+        label:
+          en_US: 粗虚点划线
+          zh_Hans: 粗虚点划线
+  - name: weight
+    type: select
+    required: true
+    default: '-4138'
+    label:
+      en_US: weight
+      zh_Hans: 边框粗细
+      pt_BR: weight
+    human_description:
+      en_US: weight
+      zh_Hans: 边框粗细
+      pt_BR: weight
+    llm_description: weight
+    form: form
+    options:
+      - value: '1'
+        label:
+          en_US: 虚点线
+          zh_Hans: 虚点线
+      - value: '-4138'
+        label:
+          en_US: 标准边框线
+          zh_Hans: 标准边框线
+      - value: '4'
+        label:
+          en_US: 粗线
+          zh_Hans: 粗线
+      - value: '2'
+        label:
+          en_US: 细线
+          zh_Hans: 细线
+  - name: color
+    type: string
+    required: false
+    label:
+      en_US: color
+      zh_Hans: 颜色色值
+      pt_BR: color
+    human_description:
+      en_US: color
+      zh_Hans: 边框的颜色色值(十六进制标准色值写法)，例如：#FF0000
+      pt_BR: color
+    llm_description: color
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_border.py

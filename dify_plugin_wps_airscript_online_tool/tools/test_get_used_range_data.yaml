@@ -1,0 +1,54 @@
+
+identity:
+  name: test_get_used_range_data
+  author: hn_big_volibear
+  label:
+    en_US: test_get_used_range_data
+    zh_Hans: 【读写类】读取表中已使用区域所有数据
+    pt_BR: test_get_used_range_data
+description:
+  human:
+    en_US: test_get_used_range_data
+    zh_Hans: 【读写类】读取工作表中已使用区域的所有数据（一般也就是全表数据！）
+    pt_BR: test_get_used_range_data
+  llm: test_get_used_range_data
+parameters:
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+  - name: return_excel
+    type: select
+    required: true
+    default: '否'
+    label:
+      en_US: return_excel
+      zh_Hans: 是否返回 Excel 文件
+      pt_BR: return_excel
+    human_description:
+      en_US: return_excel
+      zh_Hans: 是否返回 Excel 文件。如果为 是，则接口将额外返回一个 xlsx 文件（文件名.xlsx）
+      pt_BR: return_excel
+    llm_description: 是否返回 Excel 文件
+    form: form
+    options:
+      - value: '是'
+        label:
+          en_US: 是
+          zh_Hans: 是
+      - value: '否'
+        label:
+          en_US: 否
+          zh_Hans: 否
+extra:
+  python:
+    source: tools/test_get_used_range_data.py

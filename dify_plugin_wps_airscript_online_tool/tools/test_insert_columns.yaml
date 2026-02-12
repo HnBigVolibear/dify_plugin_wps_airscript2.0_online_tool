@@ -1,0 +1,57 @@
+
+identity:
+  name: test_insert_columns
+  author: hn_big_volibear
+  label:
+    en_US: test_insert_columns
+    zh_Hans: 【行列操作类】插入列
+    pt_BR: test_insert_columns
+description:
+  human:
+    en_US: test_insert_columns
+    zh_Hans: 【行列操作类】在工作表中插入指定数量的列
+    pt_BR: test_insert_columns
+  llm: test_insert_columns
+parameters:
+  - name: column_index
+    type: number
+    required: true
+    label:
+      en_US: column_index
+      zh_Hans: 列索引
+      pt_BR: column_index
+    human_description:
+      en_US: column_index
+      zh_Hans: 要插入列的位置索引，从1开始，A=1，B=2，以此类推
+      pt_BR: column_index
+    llm_description: column_index
+    form: llm
+  - name: count
+    type: number
+    required: true
+    label:
+      en_US: count
+      zh_Hans: 插入列数
+      pt_BR: count
+    human_description:
+      en_US: count
+      zh_Hans: 要插入的列数，默认为1
+      pt_BR: count
+    llm_description: count
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_insert_columns.py

@@ -1,0 +1,57 @@
+
+identity:
+  name: test_set_row_height
+  author: hn_big_volibear
+  label:
+    en_US: test_set_row_height
+    zh_Hans: 【行列操作类】设置行高
+    pt_BR: test_set_row_height
+description:
+  human:
+    en_US: test_set_row_height
+    zh_Hans: 【行列操作类】设置指定行的高度
+    pt_BR: test_set_row_height
+  llm: test_set_row_height
+parameters:
+  - name: row_index
+    type: number
+    required: true
+    label:
+      en_US: row_index
+      zh_Hans: 行索引
+      pt_BR: row_index
+    human_description:
+      en_US: row_index
+      zh_Hans: 要设置高度的行索引，从1开始
+      pt_BR: row_index
+    llm_description: row_index
+    form: llm
+  - name: height
+    type: number
+    required: true
+    label:
+      en_US: height
+      zh_Hans: 行高
+      pt_BR: height
+    human_description:
+      en_US: height
+      zh_Hans: 行高值，单位为磅，默认为20
+      pt_BR: height
+    llm_description: height
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_row_height.py

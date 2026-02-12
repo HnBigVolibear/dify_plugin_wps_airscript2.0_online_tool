@@ -1,0 +1,57 @@
+
+identity:
+  name: test_set_range_values
+  author: hn_big_volibear
+  label:
+    en_US: test_set_range_values
+    zh_Hans: 【读写类】写入区域值
+    pt_BR: test_set_range_values
+description:
+  human:
+    en_US: test_set_range_values
+    zh_Hans: 【读写类】批量设置指定区域的所有单元格值
+    pt_BR: test_set_range_values
+  llm: test_set_range_values
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 区域地址，字符串形式，比如：A1:B3
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: values
+    type: string
+    required: true
+    label:
+      en_US: values
+      zh_Hans: 区域值
+      pt_BR: values
+    human_description:
+      en_US: values
+      zh_Hans: 要设置的区域值，二维数组格式，例如：[ ["测试1", "测试2"], ["测试3", "测试4"], ["测试5", "测试6"] ]
+      pt_BR: values
+    llm_description: values
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_set_range_values.py

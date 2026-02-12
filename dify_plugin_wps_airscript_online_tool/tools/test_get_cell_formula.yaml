@@ -1,0 +1,44 @@
+
+identity:
+  name: test_get_cell_formula
+  author: hn_big_volibear
+  label:
+    en_US: test_get_cell_formula
+    zh_Hans: 【公式类】获取单元格或区域公式
+    pt_BR: test_get_cell_formula
+description:
+  human:
+    en_US: test_get_cell_formula
+    zh_Hans: 【公式类】获取指定单元格或区域的公式
+    pt_BR: test_get_cell_formula
+  llm: test_get_cell_formula
+parameters:
+  - name: address
+    type: string
+    required: true
+    label:
+      en_US: address
+      zh_Hans: 单元格区域地址
+      pt_BR: address
+    human_description:
+      en_US: address
+      zh_Hans: 单元格区域地址，字符串形式，比如：A1；同时其实也兼容一列的区域地址，比如：G1:G30
+      pt_BR: address
+    llm_description: address
+    form: llm
+  - name: sheet_name
+    type: string
+    required: false
+    label:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称
+      pt_BR: sheet_name
+    human_description:
+      en_US: sheet_name
+      zh_Hans: 操作Sheet页名称，可选，不填则默认操作当前已激活的Sheet页
+      pt_BR: sheet_name
+    llm_description: sheet_name
+    form: llm
+extra:
+  python:
+    source: tools/test_get_cell_formula.py

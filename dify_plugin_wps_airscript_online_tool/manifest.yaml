@@ -1,0 +1,53 @@
+version: 2.0.1
+type: plugin
+author: hn_big_volibear
+name: dify_plugin_wps_airscript_online_tool
+label:
+  en_US: dify_plugin_wps_airscript_online_tool
+  ja_JP: dify_plugin_wps_airscript_online_tool
+  zh_Hans: WPS智能表格在线编辑工具Beta
+  pt_BR: dify_plugin_wps_airscript_online_tool
+description:
+  en_US: a tool for wps query and edit online
+  ja_JP: a tool for wps query and edit online
+  zh_Hans: WPS智能表格在线编辑工具Beta，支持查询和编辑表格数据，支持40+种操作。基于WPS官方的AirScript API 2.0版实现，史诗巨献！理论上支持所有WPS智能表格的操作！注：当前版本存在大量AI自动编写的代码，少数地方都还没测试完毕，因此可能存在一些Bug，请客官自行探索哈哈哈~
+  pt_BR: a tool for wps query and edit online
+icon: wps.png
+resource:
+  memory: 268435456
+  permission:
+    tool:
+      enabled: true
+    model:
+      enabled: false
+      llm: false
+      text_embedding: false
+      rerank: false
+      tts: false
+      speech2text: false
+      moderation: false
+    node:
+      enabled: false
+    endpoint:
+      enabled: true
+    app:
+      enabled: true
+    storage:
+      enabled: true
+      size: 52428800
+plugins:
+  tools:
+    - provider/dify_plugin_wps_airscript_online_tool.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2026-02-02T10:59:05.8090521+08:00
+privacy: PRIVACY.md
+verified: false
