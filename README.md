@@ -2,7 +2,7 @@
 
 **Author:** HnBigVolibear 湖南大白熊工作室
 
-**Version:** 2.0.1
+**Version:** 2.0.2
 
 **Type:** tool
 

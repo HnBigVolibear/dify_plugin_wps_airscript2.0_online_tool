@@ -133,11 +133,12 @@ info_text = '''# **弱者的救赎：手把手教你玩转WPS智能表格AirScri
 api_json_file = '''
 /**
  * WPS 智能表格 AirScript2.0 API通用工具函数库
- * @Repository：https://github.com/HnBigVolibear/wps_airscript2.0_online_tool
- * @Version：V20260207豪华版
+ * @Repository1：https://github.com/HnBigVolibear/dify_plugin_wps_airscript2.0_online_tool
+ * @Repository2：https://github.com/HnBigVolibear/wps_airscript2.0_online_tool
+ * @Version：V20260213豪华版
  * @Author：湖南大白熊RPA工作室
  * @Contact：https://github.com/HnBigVolibear/
- * @Liscense：MIT
+ * @License：MIT
  * 基于WPS AirScript2.0，官方文档：https://airsheet.wps.cn/docs/apiV2/overview.html
  * 现在已切换至 2.0 版本，不过要注意可能有部分函数不兼容AirScript1.0。。。
  * 部分方法（尤其是单元格插入图片），如果你用起来发现出现离奇报错，那么请切换至1.0版本！
@@ -435,7 +436,7 @@ function executeFunction(functionName, params, sheetName) {
       case "getUsedRangeData":
         result.push({
           success: true,
-          data: getUsedRangeData(sheetName),
+          data: getUsedRangeData(params.isGetData, sheetName),
         });
         break;
 
@@ -1504,13 +1505,23 @@ function insertLink(address, text, url, sheetName) {
 
 /**
  * 获取已使用区域的数据
+ * @param {string} isGetData - 是否返回数据。否则只返回当前已使用区域的位置（起始单元格~结束单元格）
  * @param {string} sheetName - 工作表名称，不传则使用当前活动工作表
  * @returns {Array} 二维数组数据
  */
-function getUsedRangeData(sheetName) {
+function getUsedRangeData(isGetData, sheetName) {
   const ws = getWorksheetByName(sheetName);
   const usedRange = ws.UsedRange;
-  return usedRange.Value2;
+  if (isGetData=='是') {
+    return usedRange.Value2;
+  } else {
+    return [
+      usedRange.Row, // 起始行
+      usedRange.Column, // 起始列
+      usedRange.Row+usedRange.Rows.Count-1, // 最后一行
+      usedRange.Column+usedRange.Columns.Count-1 // 最后一列
+    ]
+  }
 }
 
 
@@ -1879,8 +1890,10 @@ function run_test_online() {
 
   // addWorksheet("工作表4")
   
+  console.log( getUsedRangeData( "否", sheetName ) )
+  // console.log( getUsedRangeData( "是", sheetName ) )
+  
 }
-
 
 
 // ==================== 返回结果 ====================
@@ -1894,7 +1907,7 @@ class InitWpsScriptParams(Tool):
         if help_info:
             yield self.create_text_message(info_text)
             js_bytes = api_json_file.encode('utf-8')
-            yield self.create_blob_message(js_bytes, meta={"mime_type": "text/plain", "filename":'wps_airscript_api_json_file_v2.0.txt'})   
+            yield self.create_blob_message(js_bytes, meta={"mime_type": "text/plain", "filename":'wps_airscript_client_api_v2.0.txt'})   
             return
         
         # 接下来进行鉴权！

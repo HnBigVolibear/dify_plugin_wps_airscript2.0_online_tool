@@ -9,10 +9,33 @@ identity:
 description:
   human:
     en_US: test_get_used_range_data
-    zh_Hans: 【读写类】读取工作表中已使用区域的所有数据（一般也就是全表数据！）
+    zh_Hans: 【读写类】读取工作表中已使用区域的所有数据（可以选择是获取全表数据、异或是只获取已使用区域的范围位置！）
     pt_BR: test_get_used_range_data
   llm: test_get_used_range_data
 parameters:
+  - name: is_get_data
+    type: select
+    required: true
+    default: '是'
+    label:
+      en_US: is_get_data
+      zh_Hans: 是否返回具体数据
+      pt_BR: is_get_data
+    human_description:
+      en_US:  is_get_data
+      zh_Hans: 是否返回具体数据。是则返回已使用区域的所有数据；否则只返回已使用区域的范围位置[起始行、起始列、结束行、结束列]，比如可以便于获取第一个可用行可用列。
+      pt_BR: is_get_data
+    llm_description: 是否返回具体数据。是则返回已使用区域的所有数据；否则只返回已使用区域的范围位置[起始行、起始列、结束行、结束列]，比如可以便于获取第一个可用行可用列。
+    form: form
+    options:
+      - value: '是'
+        label:
+          en_US: 是
+          zh_Hans: 是
+      - value: '否'
+        label:
+          en_US: 否
+          zh_Hans: 否
   - name: sheet_name
     type: string
     required: false
@@ -36,7 +59,7 @@ parameters:
       pt_BR: return_excel
     human_description:
       en_US: return_excel
-      zh_Hans: 是否返回 Excel 文件。如果为 是，则接口将额外返回一个 xlsx 文件（文件名.xlsx）
+      zh_Hans: 是否返回 Excel 文件。如果为 是，则接口将额外返回一个 xlsx 文件（文件名.xlsx） 注：如果前面选择只获取位置范围，则此参数将不生效。
       pt_BR: return_excel
     llm_description: 是否返回 Excel 文件
     form: form
